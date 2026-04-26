@@ -12,6 +12,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- jQuery (Moved to head for reliability) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     
@@ -21,19 +24,13 @@
     <meta property="og:title" content="Sindhu Bhat | Video & Graphic Designer">
     <meta property="og:description" content="Professional Video & Graphic Designer Portfolio. Specializing in branding, video production, and creative strategy.">
     <meta property="og:image" content="assets/images/profile/profile.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Sindhu Bhat | Video & Graphic Designer">
-    <meta property="twitter:description" content="Professional Video & Graphic Designer Portfolio. Specializing in branding, video production, and creative strategy.">
-    <meta property="twitter:image" content="assets/images/profile/profile.png">
 </head>
 <body>
 
     <!-- Header / Navbar -->
     <header id="header">
         <nav class="navbar">
-            <div class="logo"></div>
+            <div class="logo">SINDHU<span>BHAT</span></div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -42,7 +39,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#work">Work</a></li>
             </ul>
-            <div class="menu-btn">
+            <div class="menu-btn" id="menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
@@ -207,7 +204,7 @@
             <button class="filter-btn" data-filter="social">Social Media Marketing</button>
         </div>
 
-        <div class="work-container">
+        <div class="work-container" id="work-container">
             <!-- Brand Identity Design -->
             <div class="box reveal" data-category="brand">
                 <img src="assets/images/work/brand_identity/14-12-25-bharatanatyamSoumya_01.jpg.jpeg" alt="Margazhi Festival">
@@ -283,7 +280,7 @@
                 <div class="content">
                     <span class="category-label">Video Production</span>
                     <h3>Visual Strategy</h3>
-                    <p>Click to watch on YouTube.</p>
+                    <p>Blending creativity with strategic video content.</p>
                     <div class="play-icon"><i class="fas fa-external-link-alt"></i></div>
                 </div>
             </div>
@@ -292,7 +289,7 @@
                 <div class="content">
                     <span class="category-label">Video Production</span>
                     <h3>Impactful Motion</h3>
-                    <p>Click to watch on YouTube.</p>
+                    <p>Delivering cinematic motion design for brands.</p>
                     <div class="play-icon"><i class="fas fa-external-link-alt"></i></div>
                 </div>
             </div>
@@ -323,8 +320,6 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Typed.js -->

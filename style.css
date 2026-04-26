@@ -44,7 +44,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(17, 17, 17, 0.9);
+    background: rgba(17, 17, 17, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -53,15 +53,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 10%;
+    padding: 0 10%;
     height: 80px;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     color: var(--text-white);
+    letter-spacing: 1px;
 }
 
 .logo span {
@@ -76,6 +77,7 @@ header {
 .nav-links a {
     color: var(--text-white);
     font-weight: 500;
+    font-size: 1rem;
     transition: var(--transition);
 }
 
@@ -163,6 +165,7 @@ header {
     font-weight: 600;
     transition: var(--transition);
     border: 2px solid var(--primary-color);
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -194,7 +197,7 @@ header {
 
 /* Sections General */
 section {
-    padding: clamp(4rem, 10vh, 8rem) 10%;
+    padding: clamp(5rem, 10vh, 10rem) 10%;
 }
 
 .heading {
@@ -202,7 +205,7 @@ section {
     text-align: center;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     font-weight: 700;
-    margin-bottom: clamp(2rem, 5vh, 4rem);
+    margin-bottom: clamp(3rem, 5vh, 5rem);
 }
 
 .heading span {
@@ -392,8 +395,11 @@ section {
     cursor: pointer;
 }
 
+/* CRITICAL FIX: Ensure .hide is absolute display:none and overrides everything */
 .work-container .box.hide {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 .work-container .box img {
@@ -424,13 +430,6 @@ section {
     font-size: 3rem;
     color: var(--primary-color);
     margin-top: 1rem;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
 }
 
 .category-label {
@@ -523,12 +522,6 @@ footer {
     border-radius: 5px;
 }
 
-#video-container {
-    width: 80%;
-    aspect-ratio: 16 / 9;
-    max-height: 70vh;
-}
-
 .lightbox-caption {
     color: white;
     margin-top: 1.5rem;
@@ -575,13 +568,13 @@ footer {
 /* Adaptive UI / Media Queries */
 
 @media (max-width: 1200px) {
-    .navbar { padding: 1rem 5%; }
+    .navbar { padding: 0 5%; }
     .home { padding: 0 5%; }
     section { padding: 6rem 5%; }
 }
 
 @media (max-width: 991px) {
-    .home { flex-direction: column-reverse; text-align: center; padding-top: 10rem; justify-content: center; }
+    .home { flex-direction: column-reverse; text-align: center; padding-top: 10rem; justify-content: center; min-height: 100vh; }
     .home-img { justify-content: center; }
     .home-img img { width: 300px; height: 300px; }
     .social-links { justify-content: center; }
@@ -590,41 +583,38 @@ footer {
     .container { width: 100%; padding-left: 70px; padding-right: 25px; }
     .container::after { left: 18px; }
     .right { left: 0; }
-    
-    #video-container { width: 95%; }
 }
 
 @media (max-width: 768px) {
     .menu-btn { display: block; }
     .nav-links {
         position: fixed;
-        top: -100%;
-        left: 0;
+        top: 80px;
+        left: -100%;
         width: 100%;
-        background: var(--bg-dark);
+        height: calc(100vh - 80px);
+        background: rgba(17, 17, 17, 0.98);
         flex-direction: column;
-        padding: 4rem 2rem;
+        justify-content: center;
+        padding: 2rem;
         text-align: center;
-        transition: 0.4s ease;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        transition: 0.4s ease-in-out;
+        z-index: 999;
     }
-    .nav-links.active { top: 80px; }
-    .nav-links li { margin: 1.5rem 0; }
-    .nav-links a { font-size: 1.5rem; }
+    .nav-links.active { left: 0; }
+    .nav-links li { margin: 1rem 0; }
+    .nav-links a { font-size: 1.4rem; padding: 10px; display: block; }
 
     .home-img img { width: 250px; height: 250px; }
-    
     .heading { font-size: 2.5rem; }
     
-    .lightbox-nav i { font-size: 1.5rem; padding: 0.8rem; }
-    .lightbox-back { top: 15px; left: 15px; padding: 0.6rem 1.2rem; font-size: 0.8rem; }
-    .lightbox-close { top: 15px; right: 15px; font-size: 2rem; }
-    
-    .lightbox-nav { padding: 0 1rem; }
+    .work-container { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
 }
 
 @media (max-width: 480px) {
-    .home-content h1 { font-size: 2.8rem; }
+    .navbar { height: 70px; }
+    .nav-links { top: 70px; height: calc(100vh - 70px); }
+    .home-content h1 { font-size: 2.5rem; }
     .home-img img { width: 200px; height: 200px; }
     section { padding: 4rem 5%; }
     .work-container { grid-template-columns: 1fr; }
