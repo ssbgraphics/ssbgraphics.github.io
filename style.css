@@ -196,7 +196,7 @@ header {
 
 /* Sections General */
 section {
-    padding: 5rem 10%;
+    padding: 8rem 10%;
 }
 
 .heading {
@@ -223,11 +223,11 @@ section {
     gap: 4rem;
 }
 
-.about-content {
-    max-width: 800px;
-}
 
-.info {
+
+.about-content {
+    max-width: 1000px;
+}
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -241,12 +241,14 @@ section {
 
 .about-content p {
     color: var(--text-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 1.4rem;
 }
 
 .info p {
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .info span {
